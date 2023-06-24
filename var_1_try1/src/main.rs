@@ -1,7 +1,10 @@
-use ggez::event;
-use ggez::graphics;
-use ggez::input::keyboard;
-use ggez::{Context, GameResult};
+use ggez::{
+    event::{self, EventHandler},
+    graphics::{self, Color, DrawMode, DrawParam, Mesh},
+    input::keyboard::{self, KeyCode},
+    nalgebra::Point2,
+    timer, Context, GameResult,
+};
 
 const WINDOW_WIDTH: f32 = 800.0;
 const WINDOW_HEIGHT: f32 = 600.0;
@@ -30,27 +33,23 @@ impl Paddle {
     }
 
     fn update(&mut self, ctx: &mut Context) {
-        if keyboard::is_key_pressed(ctx, keyboard::KeyCode::Up) {
+        if keyboard::is_key_pressed(ctx, KeyCode::Up) {
             self.dy = -PADDLE_SPEED;
-        } else if keyboard::is_key_pressed(ctx, keyboard::KeyCode::Down) {
+        } else if keyboard::is_key_pressed(ctx, KeyCode::Down) {
             self.dy = PADDLE_SPEED;
         } else {
             self.dy = 0.0;
         }
 
-        self.y += self.dy * ggez::timer::delta(ctx).as_secs_f32();
+        self.y += self.dy * timer::delta(ctx).as_secs_f32();
         self.y = self.y.clamp(0.0, WINDOW_HEIGHT - PADDLE_HEIGHT);
     }
 
     fn draw(&self, ctx: &mut Context) -> GameResult {
         let rect = graphics::Rect::new(self.x, self.y, PADDLE_WIDTH, PADDLE_HEIGHT);
-        let mesh = graphics::Mesh::new_rectangle(
-            ctx,
-            graphics::DrawMode::fill(),
-            rect,
-            graphics::Color::new(1.0, 1.0, 1.0, 1.0),
-        )?;
-        graphics::draw(ctx, &mesh, graphics::DrawParam::default())?;
+        let mesh =
+            Mesh::new_rectangle(ctx, DrawMode::fill(), rect, Color::new(1.0, 1.0, 1.0, 1.0))?;
+        graphics::draw(ctx, &mesh, DrawParam::default())?;
         Ok(())
     }
 }
@@ -61,8 +60,8 @@ impl Ball {
     }
 
     fn update(&mut self, ctx: &mut Context) {
-        self.x += self.dx * ggez::timer::delta(ctx).as_secs_f32();
-        self.y += self.dy * ggez::timer::delta(ctx).as_secs_f32();
+        self.x += self.dx * timer::delta(ctx).as_secs_f32();
+        self.y += self.dy * timer::delta(ctx).as_secs_f32();
 
         if self.y <= 0.0 || self.y >= WINDOW_HEIGHT - BALL_RADIUS {
             self.dy = -self.dy;
@@ -70,15 +69,15 @@ impl Ball {
     }
 
     fn draw(&self, ctx: &mut Context) -> GameResult {
-        let circle = graphics::Mesh::new_circle(
+        let circle = Mesh::new_circle(
             ctx,
-            graphics::DrawMode::fill(),
-            graphics::Point2::new(self.x, self.y),
+            DrawMode::fill(),
+            Point2::new(self.x, self.y),
             BALL_RADIUS,
             0.1,
-            graphics::Color::new(1.0, 1.0, 1.0, 1.0),
+            Color::new(1.0, 1.0, 1.0, 1.0),
         )?;
-        graphics::draw(ctx, &circle, graphics::DrawParam::default())?;
+        graphics::draw(ctx, &circle, DrawParam::default())?;
         Ok(())
     }
 }
@@ -111,7 +110,7 @@ impl GameState {
     }
 }
 
-impl event::EventHandler for GameState {
+impl EventHandler for GameState {
     fn update(&mut self, ctx: &mut Context) -> GameResult {
         self.paddle_left.update(ctx);
         self.paddle_right.update(ctx);
@@ -120,7 +119,7 @@ impl event::EventHandler for GameState {
     }
 
     fn draw(&mut self, ctx: &mut Context) -> GameResult {
-        graphics::clear(ctx, graphics::Color::new(0.0, 0.0, 0.0, 1.0));
+        graphics::clear(ctx, Color::new(0.0, 0.0, 0.0, 1.0));
         self.paddle_left.draw(ctx)?;
         self.paddle_right.draw(ctx)?;
         self.ball.draw(ctx)?;
