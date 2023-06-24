@@ -1422,6 +1422,8 @@ name = "var_2_try_2"
 version = "0.1.0"
 dependencies = [
  "kiss3d",
+ "nalgebra",
+ "rand 0.6.5",
 ]
 
 [[package]]

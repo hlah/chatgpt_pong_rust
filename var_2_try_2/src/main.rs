@@ -2,7 +2,7 @@ extern crate kiss3d;
 extern crate nalgebra as na;
 extern crate rand;
 
-use kiss3d::event::{Action, Key, WindowEvent};
+use kiss3d::event::{Action, Key};
 use kiss3d::light::Light;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
@@ -20,7 +20,8 @@ struct Paddle {
 
 impl Paddle {
     fn new(x: f32, y: f32) -> Paddle {
-        let mut node = Window::new("Pong").add_cube(PADDLE_WIDTH, PADDLE_HEIGHT, 0.1);
+        let mut window = Window::new("Pong");
+        let mut node = window.add_cube(PADDLE_WIDTH, PADDLE_HEIGHT, 0.1);
         node.set_color(0.0, 1.0, 0.0);
 
         Paddle {
@@ -45,7 +46,8 @@ struct Ball {
 
 impl Ball {
     fn new(x: f32, y: f32) -> Ball {
-        let mut node = Window::new("Pong").add_sphere(BALL_RADIUS);
+        let mut window = Window::new("Pong");
+        let mut node = window.add_sphere(BALL_RADIUS);
         node.set_color(1.0, 0.0, 0.0);
 
         Ball {
@@ -71,7 +73,7 @@ fn main() {
     let mut ball = Ball::new(0.0, 0.0);
 
     while window.render() {
-        let dt = window.scene_mut().time().delta_seconds();
+        let dt = window.render_rate();
 
         if window.get_key(Key::W) == Action::Press {
             left_paddle.velocity.y = 1.0;

@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 kiss3d = "0.26"
+nalgebra = "*"
+rand = "*"
