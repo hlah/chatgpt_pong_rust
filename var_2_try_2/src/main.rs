@@ -6,7 +6,7 @@ use kiss3d::event::{Action, Key};
 use kiss3d::light::Light;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::Window;
-use na::{Point3, Vector2};
+use na::{Point3, Translation3, Vector2, U3};
 
 const PADDLE_WIDTH: f32 = 0.2;
 const PADDLE_HEIGHT: f32 = 1.0;
@@ -34,7 +34,7 @@ impl Paddle {
     fn update(&mut self, dt: f32) {
         self.position += self.velocity * dt;
         self.node
-            .set_local_translation(Point3::new(self.position.x, self.position.y, 0.0));
+            .set_local_translation(Translation3::new(self.position.x, self.position.y, 0.0));
     }
 }
 
@@ -60,7 +60,7 @@ impl Ball {
     fn update(&mut self, dt: f32) {
         self.position += self.velocity * dt;
         self.node
-            .set_local_translation(Point3::new(self.position.x, self.position.y, 0.0));
+            .set_local_translation(Translation3::new(self.position.x, self.position.y, 0.0));
     }
 }
 
