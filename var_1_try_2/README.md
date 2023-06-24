@@ -12,4 +12,5 @@ Experimento número 2 usando prompt inicial aberto: "Crie um clone de Pong usand
             - Ao colidir "padddles" pela suas laterais o bola não reflete mas fica travada na mesma posição x que o "paddle".
             - Nada acontece quando a bola sai por uma das laterais, deveria ao menos ser resetada.
             - Não há uma forma de sair do jogo.
+    - Iteração 3: solicitado para corrigir o primeiro erro da lista acima, não corrigiu o erro, apenas modificou para um dos "paddles" ser controlado pelo mouse.
 

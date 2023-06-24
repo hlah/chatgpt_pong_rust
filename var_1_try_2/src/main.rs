@@ -165,6 +165,10 @@ impl event::EventHandler for MainState {
             _ => (),
         }
     }
+
+    fn mouse_motion_event(&mut self, _ctx: &mut Context, _x: f32, y: f32, _dx: f32, _dy: f32) {
+        self.player1.position.y = y;
+    }
 }
 
 fn main() -> GameResult {
