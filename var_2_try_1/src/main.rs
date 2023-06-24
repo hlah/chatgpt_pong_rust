@@ -1,3 +1,4 @@
+use kiss3d::event::{Action, Key};
 use kiss3d::light::Light;
 use kiss3d::window::Window;
 use nalgebra::{Point2, Vector2};
@@ -86,32 +87,41 @@ fn main() {
         window.draw_line(
             &Point2::new(WINDOW_WIDTH / 2.0, 0.0),
             &Point2::new(WINDOW_WIDTH / 2.0, WINDOW_HEIGHT),
-            &kiss3d::window::LineOptions::new(1.0, nalgebra::Vector3::new(1.0, 1.0, 1.0)),
+            &kiss3d::conrod::color::WHITE,
         );
 
         window.draw_rectangle(
-            &kiss3d::planar_camera::Rect::new(
-                left_paddle.position.x - left_paddle.size.x / 2.0,
-                left_paddle.position.y - left_paddle.size.y / 2.0,
-                left_paddle.size.x,
-                left_paddle.size.y,
+            &kiss3d::conrod::Rect::from_corners(
+                &Point2::new(
+                    left_paddle.position.x - left_paddle.size.x / 2.0,
+                    left_paddle.position.y - left_paddle.size.y / 2.0,
+                ),
+                &Point2::new(
+                    left_paddle.position.x + left_paddle.size.x / 2.0,
+                    left_paddle.position.y + left_paddle.size.y / 2.0,
+                ),
             ),
-            &kiss3d::window::FillColor::Rgba(0.0, 1.0, 0.0, 1.0),
+            &kiss3d::conrod::color::GREEN,
         );
 
         window.draw_rectangle(
-            &kiss3d::planar_camera::Rect::new(
-                right_paddle.position.x - right_paddle.size.x / 2.0,
-                right_paddle.position.y - right_paddle.size.y / 2.0,
-                right_paddle.size.x,
-                right_paddle.size.y,
+            &kiss3d::conrod::Rect::from_corners(
+                &Point2::new(
+                    right_paddle.position.x - right_paddle.size.x / 2.0,
+                    right_paddle.position.y - right_paddle.size.y / 2.0,
+                ),
+                &Point2::new(
+                    right_paddle.position.x + right_paddle.size.x / 2.0,
+                    right_paddle.position.y + right_paddle.size.y / 2.0,
+                ),
             ),
-            &kiss3d::window::FillColor::Rgba(0.0, 0.0, 1.0, 1.0),
+            &kiss3d::conrod::color::BLUE,
         );
 
         window.draw_circle(
-            &kiss3d::planar_camera::Circle::new(ball.position, BALL_RADIUS),
-            &kiss3d::window::FillColor::Rgba(1.0, 1.0, 0.0, 1.0),
+            &Point2::from(ball.position),
+            BALL_RADIUS,
+            &kiss3d::conrod::color::YELLOW,
         );
     }
 }
