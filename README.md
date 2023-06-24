@@ -1,6 +1,13 @@
 
 Experimento de geração de código usando ChatGPT.
 
+# Objetivos
+
+O objetivo e analisar a criação de codigo usando o ChatGPT. 
+
+Em especial analizar os casos em que o modelo "alucina" métodos ou parâmetros que não existem e descobrir formas de minimzar isso.
+Também será analizado o quão próximo o código é da intenção original.
+
 # Metodologia
 
 Serão utilizadas várias formas de fazer um prompt no ChatGPT afim de ser criado um jogo de pong usando a linguagem de programação Rust:
