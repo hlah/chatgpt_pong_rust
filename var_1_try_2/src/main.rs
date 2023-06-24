@@ -2,6 +2,7 @@ use ggez::{
     event::{self, EventHandler},
     graphics, Context, GameResult,
 };
+use nalgebra::{Point2, Vector2};
 
 const WINDOW_WIDTH: f32 = 800.0;
 const WINDOW_HEIGHT: f32 = 600.0;
@@ -10,12 +11,12 @@ const PADDLE_HEIGHT: f32 = 60.0;
 const PADDLE_SPEED: f32 = 5.0;
 
 struct Ball {
-    position: na::Point2<f32>,
-    velocity: na::Vector2<f32>,
+    position: Point2<f32>,
+    velocity: Vector2<f32>,
 }
 
 struct Paddle {
-    position: na::Point2<f32>,
+    position: Point2<f32>,
     velocity: f32,
 }
 
@@ -28,17 +29,17 @@ struct MainState {
 impl MainState {
     fn new() -> GameResult<MainState> {
         let ball = Ball {
-            position: na::Point2::new(WINDOW_WIDTH / 2.0, WINDOW_HEIGHT / 2.0),
-            velocity: na::Vector2::new(2.0, 2.0),
+            position: Point2::new(WINDOW_WIDTH / 2.0, WINDOW_HEIGHT / 2.0),
+            velocity: Vector2::new(2.0, 2.0),
         };
 
         let player1 = Paddle {
-            position: na::Point2::new(10.0, WINDOW_HEIGHT / 2.0),
+            position: Point2::new(10.0, WINDOW_HEIGHT / 2.0),
             velocity: 0.0,
         };
 
         let player2 = Paddle {
-            position: na::Point2::new(WINDOW_WIDTH - 10.0, WINDOW_HEIGHT / 2.0),
+            position: Point2::new(WINDOW_WIDTH - 10.0, WINDOW_HEIGHT / 2.0),
             velocity: 0.0,
         };
 
@@ -70,7 +71,7 @@ impl EventHandler for MainState {
         let ball = graphics::Mesh::new_circle(
             ctx,
             graphics::DrawMode::fill(),
-            na::Point2::new(0.0, 0.0),
+            Point2::new(0.0, 0.0),
             10.0,
             2.0,
             graphics::WHITE,

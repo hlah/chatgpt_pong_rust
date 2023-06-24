@@ -16,4 +16,5 @@ Experimento número 2 usando prompt inicial aberto: "Crie um clone de Pong usand
     - Iteração 4: solicitei novamente para corrigir o erro, apenas fez uma alteração irrelevante no código.
     - Iteração 5: reenfatizei o problema que está ocorrendo e madei o erro que ocorre junto com o backtrace. Rescreveu várias partes do código, mas está ocorrendo erro de compilação por usar um módulo não declarado.
     - Iteração 6: continua dando erro de compilação. Apenas adicionou a dependência a billioteca 'nalgebra' mas o probelma não era esse.
+    - Iteração 7: fez importação direta dos objetos do nalgebro e removeu o alias. Mas agora ocorre erro por não implemantoção de trait.
 
