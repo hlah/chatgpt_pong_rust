@@ -124,11 +124,13 @@ impl event::EventHandler for MainState {
             graphics::WHITE,
         )?;
 
-        let draw_param = graphics::DrawParam::default();
+        let ball_draw_param = graphics::DrawParam::new().dest(self.ball.position);
+        let paddle1_draw_param = graphics::DrawParam::new().dest(self.player1.position);
+        let paddle2_draw_param = graphics::DrawParam::new().dest(self.player2.position);
 
-        graphics::draw(ctx, &ball, (self.ball.position, draw_param))?;
-        graphics::draw(ctx, &paddle1, (self.player1.position, draw_param))?;
-        graphics::draw(ctx, &paddle2, (self.player2.position, draw_param))?;
+        graphics::draw(ctx, &ball, ball_draw_param)?;
+        graphics::draw(ctx, &paddle1, paddle1_draw_param)?;
+        graphics::draw(ctx, &paddle2, paddle2_draw_param)?;
 
         graphics::present(ctx)?;
 
