@@ -48,7 +48,7 @@ impl Paddle {
             ctx,
             graphics::DrawMode::fill(),
             rect,
-            graphics::Color::WHITE,
+            graphics::Color::new(1.0, 1.0, 1.0, 1.0),
         )?;
         graphics::draw(ctx, &mesh, graphics::DrawParam::default())?;
         Ok(())
@@ -76,7 +76,7 @@ impl Ball {
             graphics::Point2::new(self.x, self.y),
             BALL_RADIUS,
             0.1,
-            graphics::Color::WHITE,
+            graphics::Color::new(1.0, 1.0, 1.0, 1.0),
         )?;
         graphics::draw(ctx, &circle, graphics::DrawParam::default())?;
         Ok(())
@@ -90,7 +90,7 @@ struct GameState {
 }
 
 impl GameState {
-    fn new(ctx: &mut Context) -> GameResult<Self> {
+    fn new(_ctx: &mut Context) -> GameResult<Self> {
         let paddle_left = Paddle::new(10.0, WINDOW_HEIGHT / 2.0 - PADDLE_HEIGHT / 2.0);
         let paddle_right = Paddle::new(
             WINDOW_WIDTH - PADDLE_WIDTH - 10.0,
@@ -120,7 +120,7 @@ impl event::EventHandler for GameState {
     }
 
     fn draw(&mut self, ctx: &mut Context) -> GameResult {
-        graphics::clear(ctx, graphics::Color::BLACK);
+        graphics::clear(ctx, graphics::Color::new(0.0, 0.0, 0.0, 1.0));
         self.paddle_left.draw(ctx)?;
         self.paddle_right.draw(ctx)?;
         self.ball.draw(ctx)?;
