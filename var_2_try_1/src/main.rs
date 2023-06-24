@@ -1,4 +1,3 @@
-use kiss3d::event::{Action, Key, WindowEvent};
 use kiss3d::light::Light;
 use kiss3d::window::Window;
 use nalgebra::{Point2, Vector2};
@@ -87,7 +86,7 @@ fn main() {
         window.draw_line(
             &Point2::new(WINDOW_WIDTH / 2.0, 0.0),
             &Point2::new(WINDOW_WIDTH / 2.0, WINDOW_HEIGHT),
-            &kiss3d::window::Color::rgb(1.0, 1.0, 1.0),
+            &kiss3d::window::LineOptions::new(1.0, nalgebra::Vector3::new(1.0, 1.0, 1.0)),
         );
 
         window.draw_rectangle(
@@ -97,7 +96,7 @@ fn main() {
                 left_paddle.size.x,
                 left_paddle.size.y,
             ),
-            &kiss3d::window::Color::rgb(0.0, 1.0, 0.0),
+            &kiss3d::window::FillColor::Rgba(0.0, 1.0, 0.0, 1.0),
         );
 
         window.draw_rectangle(
@@ -107,12 +106,12 @@ fn main() {
                 right_paddle.size.x,
                 right_paddle.size.y,
             ),
-            &kiss3d::window::Color::rgb(0.0, 0.0, 1.0),
+            &kiss3d::window::FillColor::Rgba(0.0, 0.0, 1.0, 1.0),
         );
 
         window.draw_circle(
             &kiss3d::planar_camera::Circle::new(ball.position, BALL_RADIUS),
-            &kiss3d::window::Color::rgb(1.0, 1.0, 0.0),
+            &kiss3d::window::FillColor::Rgba(1.0, 1.0, 0.0, 1.0),
         );
     }
 }
