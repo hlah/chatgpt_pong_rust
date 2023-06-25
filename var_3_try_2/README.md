@@ -4,3 +4,5 @@ Experimento número 1 usando prompt inicial: "Crie um clone de Pong usando a lin
 ## Resultados
 
     - Iteração 1: varios erros de compilação por uso de argumentos inválidos e métodos inexistentes.
+    - Iteração 2: continuou apresentando os mesmos erros de compilação ou similares.
+    - 
