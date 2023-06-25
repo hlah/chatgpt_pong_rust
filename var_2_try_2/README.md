@@ -6,6 +6,6 @@ Chat: https://chat.openai.com/share/cd7c6e91-83f2-4ffe-aa02-f5f82ed55fc2
 ## Resultados
 
     - Iteração 1: erro de compilação, não foi declarado duas dependências utilizadas e uso de método inexistente.
-    - Iteração 2: solicitou a adição das bibilotecas faltantos, algumas alterações de código. Erro de compilação por metodo inexistente e argumentos incorretos.
-    - Iteração 3: corrigiu os erros de argumentos incorretos mas não o de método inexistente.
+    - Iteração 2: solicitou a adição das bibilotecas faltantes, algumas alterações de código. Erro de compilação por metodo inexistente e argumentos incorretos.
+    - Iteração 3: solicitou a correção das dependências sem explitar como, tomei a liberde de fazê-lo. Corrigiu os erros de argumentos incorretos mas não o de método inexistente.
 

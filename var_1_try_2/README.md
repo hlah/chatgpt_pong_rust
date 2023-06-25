@@ -16,7 +16,7 @@ Chat: https://chat.openai.com/share/73568dc1-9e22-4866-937a-5f685ee0c0a8
             - Não há uma forma de sair do jogo.
     - Iteração 3: solicitado para corrigir o primeiro erro da lista acima, não corrigiu o erro, apenas modificou para um dos "paddles" ser controlado pelo mouse.
     - Iteração 4: solicitei novamente para corrigir o erro, apenas fez uma alteração irrelevante no código.
-    - Iteração 5: reenfatizei o problema que está ocorrendo e madei o erro que ocorre junto com o backtrace. Rescreveu várias partes do código, mas está ocorrendo erro de compilação por usar um módulo não declarado.
+    - Iteração 5: reenfatizei o problema que está ocorrendo e mandei o erro que ocorre junto com o backtrace. Rescreveu várias partes do código, mas está ocorrendo erro de compilação por usar um módulo não declarado.
     - Iteração 6: continua dando erro de compilação. Apenas adicionou a dependência a billioteca 'nalgebra' mas o probelma não era esse.
-    - Iteração 7: fez importação direta dos objetos do nalgebro e removeu o alias. Mas agora ocorre erro por não implemantoção de trait.
+    - Iteração 7: fez importação direta dos objetos do nalgebra e removeu o alias. Mas agora ocorre erro por não implemantoção de trait.
 
