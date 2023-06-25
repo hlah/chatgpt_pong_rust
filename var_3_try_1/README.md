@@ -3,3 +3,6 @@ Experimento número 1 usando prompt inicial: "Crie um clone de Pong usando a lin
 
 ## Resultados
 
+    - Iteração 1: vários erros de compilação, uso de valor inexistente, métodos inexitentes e argumentos inválidos.
+
+
