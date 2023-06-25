@@ -123,8 +123,11 @@ As hipóteses para os problemas observados são os seguintes:
 
 - Baixa exposição do modelo as bibilotecas usadas: ambas bibiliotecas **ggez** e **kiss3d** tem um uso razoável mas que não deve ser suficiente para ter um grande número de códigos de exemplo.
 - Variação de versões das bibilotecas: essas bibilotecas, por estarem em ativo desenvolvimento ainda possuem várias versões que o modelo provavelmente misturou.
-- Incapacidade do modelo em entender problemas de conflito de dependência: em quase todas as tentativas com a bibiloteco **kiss3d** o modelo exportou uma subdependêcia (**nalgebra**) manualmente em vez de usar o reexportação forneciada pela bibiloteca. Não foi capaz de resolver esse probelma. Em dois casos solicitou para o usuário resolver esses problemas mas sem explicitar como. 
+- Incapacidade do modelo em entender problemas de conflito de dependência: em quase todas as tentativas com a bibiloteco **kiss3d** o modelo exportou uma subdependêcia (**nalgebra**) manualmente em vez de usar o reexportação forneciada pela bibiloteca. Não foi capaz de resolver esse probelma. Em dois casos solicitou para o usuário resolver esses problemas mas sem explicitar como.
 
 Seria interessante estudar formas de resolver esses problemas.
 Uma possibilidade seria fornecer no prompt a documentação das bibilotecas utilizadas mas seria inviavel fornecer toda a documentação de uma bibiloteca devido a limitação do tamanho de cotexto que esses modelos tem. 
 Teria que encontrar formas de disponibilizar apenas as partes relevantes da documentação.
+
+
+O codigo gerado e mais detalhamentos dos exerimentos estão disponivis no [repositorio](https://github.com/hlah/chatgpt_pong_rust).
