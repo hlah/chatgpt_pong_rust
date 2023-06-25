@@ -5,4 +5,4 @@ Experimento número 1 usando prompt inicial: "Crie um clone de Pong usando a lin
 
     - Iteração 1: varios erros de compilação por uso de argumentos inválidos e métodos inexistentes.
     - Iteração 2: continuou apresentando os mesmos erros de compilação ou similares.
-    - 
+    - Iteração 3: não ofereceu um novo código só pediu para trocar a versão do 'nalgebra' para uma compatível. tomei a liberdade de remover o dependência do nalgebra e usar o reexportação do próprio kiss3d, isse resoveu os problemas de argumentos incopatíveis mas manteve os erros de métodos inexistentes.
