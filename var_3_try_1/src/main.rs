@@ -35,10 +35,10 @@ impl Pong {
 
     fn handle_input(&mut self, event: &WindowEvent) {
         match event {
-            WindowEvent::Key(Key::W, Action::Hold, _) => self.paddle1_pos -= 5.0,
-            WindowEvent::Key(Key::S, Action::Hold, _) => self.paddle1_pos += 5.0,
-            WindowEvent::Key(Key::Up, Action::Hold, _) => self.paddle2_pos -= 5.0,
-            WindowEvent::Key(Key::Down, Action::Hold, _) => self.paddle2_pos += 5.0,
+            WindowEvent::Key(Key::W, Action::Repeat, _) => self.paddle1_pos -= 5.0,
+            WindowEvent::Key(Key::S, Action::Repeat, _) => self.paddle1_pos += 5.0,
+            WindowEvent::Key(Key::Up, Action::Repeat, _) => self.paddle2_pos -= 5.0,
+            WindowEvent::Key(Key::Down, Action::Repeat, _) => self.paddle2_pos += 5.0,
             _ => (),
         }
     }
@@ -115,7 +115,7 @@ impl Pong {
             for event in self.window.events().iter() {
                 match event.value {
                     WindowEvent::Key(key, action, _) => {
-                        if action == Action::Press && key == Key::Escape {
+                        if action == Action::Release && key == Key::Escape {
                             return;
                         }
                         self.handle_input(&event.value);
