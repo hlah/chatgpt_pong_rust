@@ -5,5 +5,6 @@ Experimento número 1 usando prompt inicial: "Crie um clone de Pong usando a lin
 
     - Iteração 1: vários erros de compilação, uso de valor inexistente, métodos inexitentes e argumentos inválidos.
     - Iteração 2: permanece os mesmos erros de compilação, uso de valor inexistente, métodos inexitentes e argumentos inválidos.
+    - Iteração 3: trocou as versões das bibilotecas, adicionou uma feature inexistente a uma delas.
 
 
